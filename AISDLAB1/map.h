@@ -48,10 +48,6 @@ private:
 	void deleteNode(Node* z);
 	void deleteFixup(Node* x); 
 
-	//swap links(parent and other) for rotate
-
-
-
 	void clear_tree(Node* tree);
 
 	Node* minimum(Node* node);

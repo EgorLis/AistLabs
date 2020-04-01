@@ -13,7 +13,6 @@ int main() {
 	tree->insert(8, -6);
 	tree->insert(9, -7);
 	tree->insert(7, -8);
-	tree->printTree();
 	tree->Delete(8);
 	tree->printTree();
 
