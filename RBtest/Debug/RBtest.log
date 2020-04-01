@@ -1,0 +1,22 @@
+﻿  RBtest.cpp
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(60,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(73,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\source\repos\AISDLAB1\AISDLAB1\List.cpp(75,40): warning C4018: <=: несоответствие типов со знаком и без знака
+C:\Users\User\source\repos\AISDLAB1\AISDLAB1\List.cpp(74): message : во время компиляции функции-члена класс шаблон "T List<T>::at(size_t)"
+C:\Users\User\source\repos\AISDLAB1\AISDLAB1\List.cpp(74): message :         with
+C:\Users\User\source\repos\AISDLAB1\AISDLAB1\List.cpp(74): message :         [
+C:\Users\User\source\repos\AISDLAB1\AISDLAB1\List.cpp(74): message :             T=int
+C:\Users\User\source\repos\AISDLAB1\AISDLAB1\List.cpp(74): message :         ]
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(61): message : выполняется компиляция ссылки на экземпляр шаблон функции "T List<T>::at(size_t)"
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(61): message :         with
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(61): message :         [
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(61): message :             T=int
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(61): message :         ]
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(60): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "List<T>"
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(60): message :         with
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(60): message :         [
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(60): message :             T=int
+C:\Users\User\source\repos\AISDLAB1\RBtest\RBtest.cpp(60): message :         ]
+C:\Users\User\source\repos\AISDLAB1\AISDLAB1\List.cpp(84,23): warning C4018: <: несоответствие типов со знаком и без знака
+     ╤ючфрхЄё  сшсышюЄхър C:\Users\User\source\repos\AISDLAB1\Debug\RBtest.lib ш юс·хъЄ C:\Users\User\source\repos\AISDLAB1\Debug\RBtest.exp
+  RBtest.vcxproj -> C:\Users\User\source\repos\AISDLAB1\Debug\RBtest.dll
