@@ -80,110 +80,110 @@ template<typename T, typename T1> void Map<T, T1>::Delete(T key)
 	deleteNode(needed);
 }
 
-template<typename T, typename T1> void Map<T, T1>::deleteNode(Node* z) {
-	Node* x, * y;
+template<typename T, typename T1> void Map<T, T1>::deleteNode(Node* current) {
+	Node* fixed, * changed;
 
 	
-	 // delete node z from tree  
+	 // delete node current from tree  
 
-	if (!z || z == TNULL) return;
+	if (!current || current == TNULL) return;
 
 
-	if (z->left == TNULL || z->right == TNULL) {
-		/* y has a TNULL node as a child */
-		y = z;
+	if (current->left == TNULL || current->right == TNULL) {
+		/* changed has a TNULL node as a child */
+		changed = current;
 	}
 	else {
 		/* find tree successor with a TNULL node as a child */
-		y = z->right;
-		while (y->left != TNULL) y = y->left;
+		changed = current->right;
+		while (changed->left != TNULL) changed = changed->left;
 	}
 
-	/* x is y's only child */
-	if (y->left != TNULL)
-		x = y->left;
+	/* fixed is changed's only child */
+	if (changed->left != TNULL)
+		fixed = changed->left;
 	else
-		x = y->right;
+		fixed = changed->right;
 
-	/* remove y from the parent chain */
-	x->parent = y->parent;
-	if (y->parent)
-		if (y == y->parent->left)
-			y->parent->left = x;
+	/* remove changed from the parent chain */
+	fixed->parent = changed->parent;
+	if (changed->parent)
+		if (changed == changed->parent->left)
+			changed->parent->left = fixed;
 		else
-			y->parent->right = x;
+			changed->parent->right = fixed;
 	else
-		Top = x;
+		Top = fixed;
 
-	if (y != z) {
-		z->key = y->key;
-		z->value = y->value;
+	if (changed != current) {
+		current->key = changed->key;
+		current->value = changed->value;
 	}
 
-	if (y->color == BLACK)
-		deleteFixup(x);
+	if (changed->color == BLACK)
+		deleteFixup(fixed);
 
 }
-template<typename T, typename T1> void Map<T, T1>::deleteFixup(Node* x) {
+template<typename T, typename T1> void Map<T, T1>::deleteFixup(Node* fixed) {
 
 	/* maintain Red-Black tree balance  
-	   after deleting node x  */
+	   after deleting node fixed  */
 
-	while (x != Top && x->color == BLACK) {
-		if (x == x->parent->left) {
-			Node* w = x->parent->right;
-			if (w->color == RED) {
-				w->color = BLACK;
-				x->parent->color = RED;
-				left_rotate(x->parent);
-				w = x->parent->right;
+	while (fixed != Top && fixed->color == BLACK) {
+		if (fixed == fixed->parent->left) {
+			Node* brother = fixed->parent->right;
+			if (brother->color == RED) {
+				brother->color = BLACK;
+				fixed->parent->color = RED;
+				left_rotate(fixed->parent);
+				brother = fixed->parent->right;
 			}
-			if (w->left->color == BLACK && w->right->color == BLACK) {
-				w->color = RED;
-				x = x->parent;
+			if (brother->left->color == BLACK && brother->right->color == BLACK) {
+				brother->color = RED;
+				fixed = fixed->parent;
 			}
 			else {
-				if (w->right->color == BLACK) {
-					w->left->color = BLACK;
-					w->color = RED;
-					right_rotate(w);
-					w = x->parent->right;
+				if (brother->right->color == BLACK) {
+					brother->left->color = BLACK;
+					brother->color = RED;
+					right_rotate(brother);
+					brother = fixed->parent->right;
 				}
-				w->color = x->parent->color;
-				x->parent->color = BLACK;
-				w->right->color = BLACK;
-				left_rotate(x->parent);
-				x = Top;
+				brother->color = fixed->parent->color;
+				fixed->parent->color = BLACK;
+				brother->right->color = BLACK;
+				left_rotate(fixed->parent);
+				fixed = Top;
 			}
 		}
 		else {
-			Node* w = x->parent->left;
-			if (w->color == RED) {
-				w->color = BLACK;
-				x->parent->color = RED;
-				right_rotate(x->parent);
-				w = x->parent->left;
+			Node* brother = fixed->parent->left;
+			if (brother->color == RED) {
+				brother->color = BLACK;
+				fixed->parent->color = RED;
+				right_rotate(fixed->parent);
+				brother = fixed->parent->left;
 			}
-			if (w->right->color == BLACK && w->left->color == BLACK) {
-				w->color = RED;
-				x = x->parent;
+			if (brother->right->color == BLACK && brother->left->color == BLACK) {
+				brother->color = RED;
+				fixed = fixed->parent;
 			}
 			else {
-				if (w->left->color == BLACK) {
-					w->right->color = BLACK;
-					w->color = RED;
-					left_rotate(w);
-					w = x->parent->left;
+				if (brother->left->color == BLACK) {
+					brother->right->color = BLACK;
+					brother->color = RED;
+					left_rotate(brother);
+					brother = fixed->parent->left;
 				}
-				w->color = x->parent->color;
-				x->parent->color = BLACK;
-				w->left->color = BLACK;
-				right_rotate(x->parent);
-				x = Top;
+				brother->color = fixed->parent->color;
+				fixed->parent->color = BLACK;
+				brother->left->color = BLACK;
+				right_rotate(fixed->parent);
+				fixed = Top;
 			}
 		}
 	}
-	x->color = BLACK;
+	fixed->color = BLACK;
 }
 
 template<typename T, typename T1> void Map<T, T1>::clear() {
