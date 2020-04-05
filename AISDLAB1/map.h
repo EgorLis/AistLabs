@@ -45,8 +45,8 @@ private:
 	Node* Top;
 	Node* TNULL;
 
-	void deleteNode(Node* z);
-	void deleteFixup(Node* x); 
+	void deleteNode(Node* current);
+	void deleteFixup(Node* fixed);
 
 	void clear_tree(Node* tree);
 
@@ -58,7 +58,7 @@ private:
 
 	Node* uncle(Node* cur);
 
-	Node* sibling(Node* n);
+	Node* sibling(Node* cur);
 
 	Node* find_key(T key);
 	//all print function

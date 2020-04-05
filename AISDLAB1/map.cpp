@@ -241,12 +241,12 @@ template<typename T, typename T1> void Map<T, T1>::clear() {
 			return cur1->left;
 	}
 
-    template<typename T, typename T1>	typename Map<T, T1>::Node* Map<T, T1>::sibling(Node* n)
+    template<typename T, typename T1>	typename Map<T, T1>::Node* Map<T, T1>::sibling(Node* cur)
 	{
-		if (n == n->parent->left)
-			return n->parent->right;
+		if (cur == cur->parent->left)
+			return cur->parent->right;
 		else
-			return n->parent->left;
+			return cur->parent->left;
 	}
 
     template<typename T, typename T1> typename Map<T, T1>::Node* Map<T, T1>::find_key(T key) {
